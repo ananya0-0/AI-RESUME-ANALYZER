@@ -65,6 +65,10 @@ if uploaded_file is not None:
             # Display results 
 
             st.success("Analysis complete!")
+            if "agent_steps" in result:
+                with st.expander("🤖 Agent steps taken"):
+                    for i, step in enumerate(result["agent_steps"], 1):
+                        st.markdown(f"`Step {i}:` {step}")
             st.divider()
 
             # Score cards at the top
