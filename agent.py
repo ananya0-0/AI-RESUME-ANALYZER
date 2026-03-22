@@ -4,11 +4,16 @@ import fitz
 from docx import Document
 from groq import Groq
 from dotenv import load_dotenv
-
+import streamlit as st
 load_dotenv()
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+# Works locally (reads .env) AND on Streamlit Cloud (reads st.secrets)
+try:
+    api_key = st.secrets["GROQ_API_KEY"]
+except:
+    api_key = os.getenv("GROQ_API_KEY")
 
+client = Groq(api_key=api_key)
 # ── Extract text from uploaded file ──────────────────────────────────────────
 
 def extract_text_from_pdf(file_path):
