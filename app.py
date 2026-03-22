@@ -28,7 +28,7 @@ with st.sidebar:
     )
     st.markdown("---")
     st.markdown("**Supported formats:** PDF, DOCX")
-    st.markdown("**Model:** Claude Haiku (fast)")
+    st.markdown("**Model:** Groq LLaMA 3.3 70B (fast)") 
 
 # File upload 
 
